@@ -2,17 +2,6 @@ const express = require('express');
 const axios = require('axios');
 const router = express.Router();
 
-// CORS headers middleware for this router
-router.options('/desserts', (req, res) => {
-  console.log('Received request from:', req.headers.origin);
-
-  res.setHeader('Access-Control-Allow-Origin', req.headers.origin || '*');
-  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.sendStatus(200);
-});
-
-
 router.get('/desserts', async (req, res) => {
   const { location, term } = req.query;
 
